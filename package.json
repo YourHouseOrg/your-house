@@ -1,0 +1,62 @@
+{
+  "name": "your-house",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "docker:dev": "docker compose start",
+    "lint": "pnpm lint:all && pnpm format",
+    "format": "prettier --write --cache .",
+    "lint:all": "nx run-many --parallel --all --target=lint --fix",
+    "migrate:dev": "npx dotenv -e .env.local -- prisma migrate dev",
+    "db:push": "npx dotenv -e .env.local -- prisma db push",
+    "migrate:reset": "npx dotenv -e .env.local -- prisma migrate reset",
+    "db:seed": "npx dotenv -e .env.local -- prisma db seed",
+    "prisma:generate": "npx dotenv -e .env.local -- prisma generate",
+    "prisma:studio": "npx dotenv -e .env.development -- prisma studio",
+    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
+  },
+  "dependencies": {
+    "@capacitor/cli": "^5.1.0",
+    "@capacitor/core": "^5.1.0",
+    "@prisma/client": "^4.16.2",
+    "@types/node": "20.3.3",
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
+    "autoprefixer": "10.4.14",
+    "dotenv-cli": "^7.2.1",
+    "eslint-config-next": "13.4.7",
+    "next": "13.4.7",
+    "postcss": "8.4.24",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "3.3.2"
+  },
+  "devDependencies": {
+    "@radix-ui/colors": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "commitizen": "^4.3.0",
+    "commitlint": "^17.6.6",
+    "commitlint-config-gitmoji": "^2.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "dotenv": "^16.3.1",
+    "eslint": "8.44.0",
+    "eslint-config-standard-with-typescript": "^36.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "prisma": "^4.16.2",
+    "typescript": "5.1.6",
+    "windy-radix-palette": "^0.6.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
